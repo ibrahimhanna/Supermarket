@@ -26,7 +26,12 @@ private static final long serialVersionUID = -2343243243242432341L;
 	@Column(name="english_name")
 	private String english_name;
 	
-	@Column(name="image")
+	
+	@Column(name="image_path")
+	private String image_path;
+	
+	
+	@Column(name="image",  length = 100000 )
 	private byte[] image;
 
 	public long getId() {
@@ -59,6 +64,14 @@ private static final long serialVersionUID = -2343243243242432341L;
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+
+	public String getImage_path() {
+		return image_path;
+	}
+
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
 	}
 	
 	
