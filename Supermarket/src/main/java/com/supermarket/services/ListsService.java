@@ -32,6 +32,22 @@ public class ListsService {
 	
 	
 	
+	
+	
+	public boolean updateLists(Lists list) {
+		
+		try {
+			listsRepository.save(list);
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
+		
+		
+	}
+	
+	
 	public List<Lists> getLists(){
 		
 		return listsRepository.findAll();
