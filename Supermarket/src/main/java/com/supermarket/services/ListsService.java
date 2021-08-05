@@ -54,5 +54,18 @@ public class ListsService {
 	}
 	
 	
+	public boolean deleteList(long listID) {
+		
+		try {
+		listsRepository.deleteById(listID);
+		return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
+	}
+	
+	
+	
 	
 }
