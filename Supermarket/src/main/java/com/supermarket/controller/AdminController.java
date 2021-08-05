@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.supermarket.model.Lists;
 import com.supermarket.model.Market;
+import com.supermarket.services.ListsService;
 import com.supermarket.services.MarketService;
 
 @RestController
@@ -24,6 +26,20 @@ public class AdminController {
 	
 	@Autowired
 	MarketService marketService;
+	
+	
+	@Autowired
+	ListsService listsService;
+	
+	
+	
+	@RequestMapping(path="/hello" , method=RequestMethod.GET)
+	public String hello() {
+		return "hello";
+		}
+	
+	
+	
 	
 	
 	@PostMapping(path= "/register_market", consumes = "application/json", produces = "application/json")
@@ -57,12 +73,23 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(path="/hello" , method=RequestMethod.GET)
-	public String hello() {
-		return "hello";
+	
+	
+	@PostMapping(path= "/create_list", consumes = "application/json", produces = "application/json")
+	public ResponseEntity<Object> createList(@RequestBody Lists list){
+	
+		
+	
+		if(listsService.saveLists(list)) {
+			 return new ResponseEntity<>(list, HttpStatus.CREATED);
 		}
+		else {
+			 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 	
 	
+
 	
 	
 }
