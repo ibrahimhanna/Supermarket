@@ -1,5 +1,7 @@
 package com.supermarket.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,10 @@ public class ListsService {
 	
 	
 	
-	
+	public List<Lists> getLists(){
+		
+		return listsRepository.findAll();
+	}
 	
 	
 	
