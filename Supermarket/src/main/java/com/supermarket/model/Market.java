@@ -24,7 +24,7 @@ private static final long serialVersionUID = -2343243243242432341L;
 	
 	
 	@Column(name="english_name")
-	private String english_name;
+	private String englishname;
 	
 	
 	@Column(name="image_path")
@@ -50,12 +50,14 @@ private static final long serialVersionUID = -2343243243242432341L;
 		this.arabic_name = arabic_name;
 	}
 
-	public String getEnglish_name() {
-		return english_name;
+	
+
+	public String getEnglishname() {
+		return englishname;
 	}
 
-	public void setEnglish_name(String english_name) {
-		this.english_name = english_name;
+	public void setEnglishname(String englishname) {
+		this.englishname = englishname;
 	}
 
 	public byte[] getImage() {

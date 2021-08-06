@@ -67,5 +67,33 @@ public class ListsService {
 	
 	
 	
+	public boolean updateListActivation(long listID, int activeStatus) {
+		
+		try {
+		Lists list = listsRepository.getById(listID);
+		if(activeStatus == 1) {
+		list.setActive_status(true);
+		}
+		else if(activeStatus == 0) {
+			list.setActive_status(false);
+		}
+		
+	
+		listsRepository.save(list);
+		return true;
+		}
+		
+		catch (Exception e) {
+			return false;
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 }

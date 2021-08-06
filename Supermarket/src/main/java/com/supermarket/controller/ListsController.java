@@ -67,4 +67,21 @@ public class ListsController {
 	
 	
 	
+	@PutMapping(path= "/update_activation/{id}/{activeStatus}")
+	public ResponseEntity<Object> changeListActivation(@PathVariable("id") long listID, @PathVariable("activeStatus") int activeStatus){
+	
+		if(listsService.updateListActivation(listID,activeStatus)) {
+			 return new ResponseEntity<>("Activation is set", HttpStatus.ACCEPTED);
+		}
+		else {
+			 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
 }

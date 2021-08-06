@@ -29,7 +29,10 @@ public class MarketService {
 	}
 	
 	
-	
+	public Market getMarket(String marketEnglishName) {
+		
+		return marketRepository.findByEnglishname(marketEnglishName).get(0);
+	}
 	
 	
 	
